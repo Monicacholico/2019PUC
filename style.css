@@ -1,0 +1,200 @@
+html {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: #fafafa;
+}
+
+h2, h3 {
+    text-align: center;
+}
+
+/********************************           TABS        ***********************/
+
+nav {
+    height: 3rem;
+    background-color: #0c0c0c;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+nav ul {
+    list-style: none;
+    color: #fff;
+    font-size: 1.5rem;
+    float: right;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+    background: #C02044;
+    padding: 10px;
+    transition: all .3s ease-in-out;
+    border-bottom: 1px solid transparent;
+    border-radius: 1.5rem;
+    box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);
+}
+
+a:hover {
+    color: #000;
+}
+
+li {
+    display: inline-flex;
+    margin: 20px;
+}
+
+.nav .active a {
+    color: #000;
+    border-bottom: 1px solid slateblue;
+}
+
+.nav .active a:hover {
+    border-color: transparent;
+    color: white;
+}
+
+.tab-pane {
+    display: none;
+}
+
+.tab-pane.active {
+    display: block;
+}
+
+.first-layout {
+    width: 100%;
+    display: table;
+}
+
+
+/*******************************          GRID TAB           ******************************/
+
+.section-one {
+    display: table-cell;
+    padding: 15px;
+    margin-top: 25px;
+    margin-left: 10px;
+    width: 65%;
+    float: left;
+    background: #f2bbae;
+    border-radius: 1.5rem;
+    box-shadow: 5px 5px 5px rgba(68,68, 68, 0.6);
+}
+
+.side-one {
+    display: table-cell;
+    padding: 15px;
+    margin-top: 5px;
+    margin-right: 25px;
+    width: 25%;
+    float: right;
+    box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);
+}
+
+.second-layout {
+    margin: 10px;
+    display: flex;
+    width: 100%;
+}
+
+
+.section-two {
+    margin: 5px;
+    background-color: #f2bbae;
+    border-radius: 0.5rem;
+    flex: 1;
+    padding: 10px;
+    box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);
+}
+
+
+@media only screen and (max-width: 768px){
+    .section-one {
+        display: block;
+        width: 100%;
+    }
+    .side-one {
+        display: block;
+        width: 100%;
+    }
+    .second-layout {
+        display: flex;
+    }
+}
+
+
+/*****************************            DRAG AND DROP                *******************************/
+.fill{
+    background-image: url("http://source.unsplash/com/random/150x150");
+    position: relative;
+    height: 150px;
+    width: 150px;
+    top: 5px;
+    left: 5px;
+    cursor: pointer;
+}
+
+.empty {
+    display: inline-block;
+    height: 160px;
+    width: 160px;
+    margin: 10px;
+    border: 3px solid salmon;
+    background-color: white;
+}
+
+.hold {
+    border: 4px solid #ccc;
+}
+
+.hovered {
+    background: #f4f4f4;
+    border-style: dashed;
+}
+
+.invisible {
+    display: none;
+}
+
+/***********************             To add style to element              ****************************/
+
+.mystyle {
+    width: 100%;
+    padding: 25px;
+    background-color: coral;
+    color: white;
+    font-size: 25px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.improvise {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdada, sans-serif;
+}
+
+
+
+/************************                              GRID                            *******************************/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
