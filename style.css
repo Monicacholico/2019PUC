@@ -129,7 +129,7 @@ li {
 
 /*****************************            DRAG AND DROP                *******************************/
 .fill{
-    background-image: url("http://source.unsplash/com/random/150x150");
+    background-image: url("https://source.unsplash.com/random/150x150");
     position: relative;
     height: 150px;
     width: 150px;
@@ -771,7 +771,41 @@ li {
 
 
 
+/*************************                          FILTER ONE                 **********************************/
 
+
+
+
+.filter-container {
+    overflow: hidden;
+}
+
+.filterDiv {
+    text-align: center;
+    margin: 2px;
+    line-height: 100px;
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+.btn {
+    border: none;
+    outline: none;
+    padding: 12px 16px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #ddd;
+}
+
+.btn.active {
+    background-color: #BF0404;
+    color: white;
+}
 
 
 
