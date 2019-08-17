@@ -74,3 +74,10 @@ function dragDrop(){
 
 
 
+function addToDo(){
+    var span = document.createElement('li');
+    var txt = document.createTextNode("\u00d7");
+    span.appendChild(txt);
+    console.log(span.appendChild(txt));
+}
+
