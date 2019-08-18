@@ -72,12 +72,66 @@ function dragDrop(){
 
 
 
+/////                     To Do List              ////////////////////////////
 
 
-function addToDo(){
-    var span = document.createElement('li');
-    var txt = document.createTextNode("\u00d7");
+
+var myNodeList = document.getElementsByTagName('li');
+var i;
+
+for(i = 0; i < myNodeList.length; i++){
+    var span = document.createElement('span');
+    var txt = document.createTextNode('\u00d7');
+    span.className = 'close';
     span.appendChild(txt);
-    console.log(span.appendChild(txt));
+    myNodeList[i].appendChild(span);
 }
 
+var close = document.getElementsByClassName('close');
+var i;
+
+for(i = 0; i < close.length; i++){
+    close[i].onclick = function(){
+        var div = this.parentElement;
+        div.style.display = 'none';
+    }
+}
+
+var list = document.querySelector('ul');
+list.addEventListener('click', function(e){
+    if (e.target.tagName === 'li') {
+    e.target.classList.toggle('checked');
+    }
+}, false);
+
+
+function newElement(){
+    var li = document.createElement('li');
+    var inputValue = document.getElementById('task-input').value;
+    var t = document.createTextNode(inputValue);
+    li.appendChild(t);
+    li.classList.add('fading');
+    if(inputValue === ""){
+        alert("You must add something to your list");
+    } else {
+        document.getElementById('my-to-do-list').appendChild(li);
+    }
+        document.getElementById('task-input').value = "";
+
+    var span = document.createElement('span');
+    var txt = document.createTextNode('\u00d7');
+    span.className = 'close';
+    span.appendChild(txt);
+    li.appendChild(span);
+
+    for (i = 0; i < close.length; i++){
+        close[i].onclick = function(){
+            var div = this.parentElement;
+            div.style.display = 'none';
+        }
+    }
+
+
+
+
+}
