@@ -702,6 +702,13 @@ li {
     margin: 0;
 }
 
+
+.checked {
+    color: white;
+    display: block;
+}
+
+
 .content-list ul li.checked::before {
     content: '';
     position: absolute;
@@ -746,7 +753,7 @@ li {
 /*************************************            Parallax            *******************************************/
 
 .parallax {
-    background-image: url('https://source/unsplash.com/random');
+    /*background-image: url('https://source/unsplash.com/random');*/
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;

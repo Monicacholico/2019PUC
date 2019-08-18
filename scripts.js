@@ -76,11 +76,11 @@ function dragDrop(){
 
 
 
-var myNodeList = document.getElementsByTagName('li');
+var myNodeList = document.getElementsByTagName('LI');
 var i;
 
 for(i = 0; i < myNodeList.length; i++){
-    var span = document.createElement('span');
+    var span = document.createElement('SPAN');
     var txt = document.createTextNode('\u00d7');
     span.className = 'close';
     span.appendChild(txt);
@@ -99,18 +99,18 @@ for(i = 0; i < close.length; i++){
 
 var list = document.querySelector('ul');
 list.addEventListener('click', function(e){
-    if (e.target.tagName === 'li') {
+    if (e.target.tagName === 'LI') {
     e.target.classList.toggle('checked');
     }
 }, false);
 
 
-function newElement(){
+function newElement() {
     var li = document.createElement('li');
     var inputValue = document.getElementById('task-input').value;
     var t = document.createTextNode(inputValue);
     li.appendChild(t);
-    li.classList.add('fading');
+    // li.classList.add('fading');
     if(inputValue === ""){
         alert("You must add something to your list");
     } else {
@@ -131,7 +131,15 @@ function newElement(){
         }
     }
 
-
-
-
+    var input = document.getElementById('task-input');
+    input.addEventListener('keyup', function(e){
+        e.preventDefault();
+        if(e.keyCode === 13){
+            console.log(e.keyCode);
+            document.getElementById('list-button').click();
+        }
+    });
 }
+
+
+
