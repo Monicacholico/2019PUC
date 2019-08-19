@@ -13,15 +13,15 @@
         <nav>
             <ul class="nav" id="nav-tab">
                 <li class="active"><a href="#grid">Grid</a></li>
-                <li ><a href="#transitions">Transitions</a></li>
-                <li ><a href="#events">Events</a></li>
-                <li ><a href="#canvas">Canvas</a></li>
-                <li ><a href="#contact">Contact</a></li>
+                <li><a href="#transitions">Transitions</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#canvas">Canvas</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
     <section class="tab-content">
-        <article class="tab-pane" id="grid">
+        <article class="tab-pane active" id="grid">
             <h2>Layout with Float</h2>
             <div class="first-layout">
                 <div class="section-one">
@@ -271,10 +271,33 @@
                 <input type="text" id="for-name">
             </form>
             <div>
-                <h2>Add style to an elment</h2>
+                <h2>Add style to an element</h2>
                 <p>Click the Try it button to add "style" class to the following div element</p>
                 <button id="myButton" type="button" onclick="addStyle()">Add Style</button>
                 <div id="myDiv">This is a Div element</div>
+            </div>
+            <div class="contact-grid">
+                <div></div>
+                <div>
+                    <div class="to-do-list inside-container">
+                        <div class="header-list">
+                            <h3>To do List</h3>
+                            <input type="text" id="today-input">
+                            <button type="button" onclick="newTask()" id="dailyList-button">Add</button>
+                        </div>
+                        <div class="content-list">
+                            <ul id="daily-to-do-list">
+
+                            </ul>
+                            <div class="footer-list">
+                                <div class="grid-list" id="task-squares">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div></div>
             </div>
         </article>
     </section>

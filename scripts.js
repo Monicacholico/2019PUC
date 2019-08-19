@@ -9,7 +9,7 @@ function onTabClick(e){
     let activeTabs = document.querySelectorAll('.active');
 
 
-    activeTabs.forEach(function (tab){
+    activeTabs.forEach(function(tab){
         tab.className = tab.className.replace('active', '');
     });
 
@@ -179,5 +179,75 @@ function newElement() {
 
 }
 
+////////////////                     To Do List in Contact                      //////////////////////////
 
+
+var myDailyList = document.getElementsByTagName('li');
+var i;
+
+for(i = 0; i < myDailyList.length; i++){
+    var span = document.createElement('span');
+    var txt = document.createTextNode('\u00D7');
+    span.className = 'close';
+    span.appendChild(txt);
+    myDailyList[i].appendChild(span);
+}
+
+var close = document.getElementsByClassName('close');
+var i;
+for(i = 0; i < close.length; i++) {
+    close[i].onclick = function(){
+        var div = this.parentElement;
+        div.style.display = none;
+    }
+}
+
+var dailyList = document.getElementById('daily-to-do-list');
+dailyList.addEventListener('click', function(e){
+    if(e.target.tagName === 'LI'){
+        e.target.classList.toggle('checked');
+    }
+}, false);
+
+function newTask(){
+    var li = document.createElement('li');
+    var inputValue = document.getElementById('today-input').value;
+    var t = document.createTextNode(inputValue);
+    li.classList.add('fadeIn');
+    li.appendChild(t);
+    if(inputValue === '') {
+        alert("You must enter a task to your list")
+    }else {
+        document.getElementById('daily-to-do-list').appendChild(li);
+    }
+        document.getElementById('today-input').value = '';
+
+    var span = document.createElement('span');
+    var txt = document.createTextNode('\u00D7');
+    var cell = document.createElement('div');
+    cell.className = 'grid-list';
+    document.getElementById('task-squares').appendChild(cell);
+    span.className = 'close';
+    span.appendChild(txt);
+    li.appendChild(span);
+
+    for(var i = 0; i < close.length; i++){
+        close[i].onclick = function(){
+            var div = this.parentElement;
+            div.style.display = 'none';
+            cell.style.backgroundColor = '#C02044';
+        }
+    }
+}
+
+
+function enterClick(e){
+        if(e.keyCode === 13){
+            e.preventDefault();
+            document.getElementById('dailyList-button').onclick();
+        }
+}
+
+var input = document.getElementById('today-input');
+input.addEventListener('keyup', enterClick, false);
 

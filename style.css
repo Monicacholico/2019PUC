@@ -667,7 +667,7 @@ li {
     padding: 0;
 }
 
-#my-to-do-list {
+#my-to-do-list, #daily-to-do-list {
     margin: 0;
     padding: 0;
     text-align: left;
@@ -676,6 +676,19 @@ li {
 
 
 #my-to-do-list li {
+    cursor: pointer;
+    position: relative;
+    padding: 12px 8px 12px 40px;
+    font-size: 18px;
+    transition: 0.2s;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#daily-to-do-list li {
     cursor: pointer;
     position: relative;
     padding: 12px 8px 12px 40px;
@@ -735,14 +748,14 @@ li {
     color: white;
 }
 
-#task-input {
+#task-input, #today-input {
     width: 65%;
     border: none;
     padding: 10px;
     float: left;
 }
 
-#list-button {
+#list-button , #dailyList-button{
     width: 20%;
     border: none;
     padding: 10px;
@@ -761,10 +774,7 @@ li {
 /*************************************            Parallax            *******************************************/
 
 .parallax {
-    /*background-image: url('https://source/unsplash.com/random');*/
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
+    background: url("https://source.unsplash.com/random") no-repeat fixed center;
     background-size: cover;
 }
 
