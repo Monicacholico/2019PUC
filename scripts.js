@@ -72,15 +72,60 @@ function dragDrop(){
 
 
 
+
+///////////             To add Style to element           //////////////////////////////
+
+function addStyle(){
+    var element, name, arr;
+    element = document.getElementById('myDiv');
+    name = 'mystyle';
+    arr = element.className.split(' ');
+    if(arr.indexOf(name) === -1){
+        element.className += " " + name;
+    }
+}
+
+
+////             To do Input           /////////////////
+
+function addTodo(){
+    var node = document.createElement('li');
+    var input = document.getElementById('my-input').value;
+    var textNode = document.createTextNode(input);
+    node.classList.add('fadeIn');
+    node.appendChild(textNode);
+    document.getElementById('my-list').appendChild(node);
+    document.getElementById('my-input').value = "";
+};
+
+var input = document.getElementById('my-input');
+input.addEventListener('keyup', function(e){
+    if(e.keyCode === 13){
+        e.preventDefault();
+        document.getElementById('my-button').click();
+    }
+});
+
+
+
+
 /////                     To Do List              ////////////////////////////
 
 
+var input = document.getElementById('task-input');
+input.addEventListener('keyup', function(e){
+    if(e.keyCode === 13){
+        e.preventDefault();
+        console.log(e.keyCode);
+        document.getElementById('list-button').click();
+    }
+});
 
-var myNodeList = document.getElementsByTagName('LI');
+var myNodeList = document.getElementsByTagName('li');
 var i;
 
 for(i = 0; i < myNodeList.length; i++){
-    var span = document.createElement('SPAN');
+    var span = document.createElement('span');
     var txt = document.createTextNode('\u00d7');
     span.className = 'close';
     span.appendChild(txt);
@@ -97,7 +142,7 @@ for(i = 0; i < close.length; i++){
     }
 }
 
-var list = document.querySelector('ul');
+var list = document.getElementById('my-to-do-list');
 list.addEventListener('click', function(e){
     if (e.target.tagName === 'LI') {
     e.target.classList.toggle('checked');
@@ -110,7 +155,7 @@ function newElement() {
     var inputValue = document.getElementById('task-input').value;
     var t = document.createTextNode(inputValue);
     li.appendChild(t);
-    // li.classList.add('fading');
+    li.classList.add('fadeIn');
     if(inputValue === ""){
         alert("You must add something to your list");
     } else {
@@ -131,14 +176,7 @@ function newElement() {
         }
     }
 
-    var input = document.getElementById('task-input');
-    input.addEventListener('keyup', function(e){
-        e.preventDefault();
-        if(e.keyCode === 13){
-            console.log(e.keyCode);
-            document.getElementById('list-button').click();
-        }
-    });
+
 }
 
 
