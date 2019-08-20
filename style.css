@@ -42,7 +42,7 @@ a:hover {
     color: #000;
 }
 
-li {
+nav ul li {
     display: inline-flex;
     margin: 20px;
 }
