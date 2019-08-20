@@ -289,12 +289,92 @@ function removeClass(element, name){
     element.className = arr1.join(" ");
 }
 
-// var btnContainer = document.getElementById("myBttns");
+var btnContainer = document.getElementById("myBttns");
 var btns = btnContainer.getElementsByClassName("btn");
 for(var i = 0; i < btns.length; i++){
     btns[i].addEventListener('click', function(){
-        var current = document.getElementsByClassName("active");
+        var current = document.getElementsByClassName("btn active");
         current[0].className = current[0].className.replace("active", " ");
         this.className += ' active';
     })
 }
+
+
+//////////////////                        FILTER TWO                       ///////////////////////////
+
+// VARIABLES
+
+var app = document.querySelector('#filters');
+var songs = document.querySelectorAll("#playlist li");
+
+console.log(songs);
+
+// METHODS
+
+var getGenres = function(){
+    var genres = songs.map(function(song){
+        return song.getAttribute('data-genre');
+    });
+    return genres.filter(function(genre, index){
+        return genres.indexOf(genre) === index;
+    });
+};
+
+
+var renderChecklists = function(genres){
+    console.log('genres: ' + genres);
+    app.innerHTML = '<h2>Filter Sons</h2><h3>By Genre</h3>' +
+        genres.map(function(genre){
+            var html = '<label>' +
+                '<input type="checkbox" data-filter="' + genre + " checked>' +
+                genre + '</label>';
+            return html;
+        }).join(" ") + '<h3>Grammy Nomination</h3>' +
+                        '<label>' + '<input type="checkbox" data-filter="grammy">' +
+                        'Only show Grammy-nomminated Songs' +
+                        '</label>';
+};
+
+
+var showAndHideSongs = function(event, filter) {
+
+    // Get all songs that match the genre of the filter
+
+    var songsByGenre = Array.from(document.querySelectorAll('#playlist [data-genre"' + filter + '"]'));
+
+        //if checkbox is checked, show songs
+        // otherwise, hide them
+
+        if(event.target.checked){
+            songsByGenre.forEach(function(song){
+                song.removeAttribute('hidden');
+            });
+        } else {
+            songsByGenre.forEach(function(song){
+                song.setAttribute('hidden', 'true');
+            });
+        }
+
+};
+
+var clickHandler = function(event){
+    var filter = event.target.getAttribute('data-filter');
+    if(!filter) return;
+
+    // Show or Hide Songs;
+
+    showAndHideSongs();
+
+};
+
+
+var genres = getGenres();
+renderChecklists(genres);
+
+
+// Listen for checklist toggles
+
+
+document.documentElement.addEventListener('click', clickHandler, false);
+
+
