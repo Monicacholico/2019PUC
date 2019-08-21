@@ -770,6 +770,26 @@ nav ul li {
     background-color: #bbb;
 }
 
+/********************************     List to Do in Contact         ***************************************/
+
+
+.contact-grid {
+    margin: 50px 0;
+    display: grid;
+    grid-template: repeat(1, 1fr) / repeat(1, 2fr 2fr 2fr);
+    grid-gap: 3px;
+}
+
+.contact-grid div {
+    padding: .5em;
+    color: gray;
+    font-size: 1em;
+    font-family: "Noto Sans", sans-serif;
+}
+
+
+
+
 
 /*************************************            Parallax            *******************************************/
 
@@ -831,9 +851,28 @@ nav ul li {
     color: white;
 }
 
+/**********************                FILTER TWO                 ****************************/
 
+#playlist li {
+    margin-left: 55px;
+    text-align: left;
+}
 
+label {
+    display: inline;
+    width: 100%;
+    margin-bottom: 0.25em;
+    padding: 0.25em;
+    color: black;
+}
 
+#filters label {
+    text-transform: capitalize;
+}
+
+/*.songs {*/
+    /*text-align: left;*/
+/*}*/
 
 
 

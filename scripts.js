@@ -326,7 +326,7 @@ var renderChecklists = function(genres){
     app.innerHTML = '<h2>Filter Sons</h2><h3>By Genre</h3>' +
         genres.map(function(genre){
             var html = '<label>' +
-                '<input type="checkbox" data-filter= "' + genre + '">' +
+                '<input type="checkbox" data-filter= "' + genre + '" checked>' +
                 genre + '</label>';
             return html;
         }).join(" ") + '<h3>Grammy Nomination</h3>' +
@@ -336,15 +336,11 @@ var renderChecklists = function(genres){
 };
 
 
-var showAndHideSongs = function(event, filter) {
-
+var showAndHideSongs = function(event, filter){
     // Get all songs that match the genre of the filter
-
-    var songsByGenre = Array.from(document.querySelectorAll('#playlist [data-genre"' + filter + '"]'));
-
+    var songsByGenre = Array.from(document.querySelectorAll('#playlist [data-genre="' + filter + '"]'));
         //if checkbox is checked, show songs
         // otherwise, hide them
-
         if(event.target.checked){
             songsByGenre.forEach(function(song){
                 song.removeAttribute('hidden');
@@ -354,7 +350,6 @@ var showAndHideSongs = function(event, filter) {
                 song.setAttribute('hidden', 'true');
             });
         }
-
 };
 
 var clickHandler = function(event){
@@ -363,7 +358,7 @@ var clickHandler = function(event){
 
     // Show or Hide Songs;
 
-    showAndHideSongs();
+    showAndHideSongs(event, filter);
 
 };
 
@@ -375,6 +370,12 @@ renderChecklists(genres);
 // Listen for checklist toggles
 
 
-document.documentElement.addEventListener('click', clickHandler, false);
+// document.documentElement.addEventListener('click', clickHandler, false);
+
+var genreCheckeds = Array.from(document.getElementsByTagName('label'));
+
+    genreCheckeds.forEach(function(genreChecked){
+        genreChecked.addEventListener('click', clickHandler, false);
+    });
 
 
