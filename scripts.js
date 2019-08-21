@@ -306,6 +306,7 @@ for(var i = 0; i < btns.length; i++){
 
 var app = document.querySelector('#filters');
 var songs = Array.from(document.querySelectorAll("#playlist li"));
+var grammyCheckbox;
 
 console.log(songs);
 
@@ -323,7 +324,7 @@ var getGenres = function(){
 
 var renderChecklists = function(genres){
     console.log('genres: ' + genres);
-    app.innerHTML = '<h2>Filter Sons</h2><h3>By Genre</h3>' +
+    app.innerHTML = '<h2>Filter Songs</h2><h3>By Genre</h3>' +
         genres.map(function(genre){
             var html = '<label>' +
                 '<input type="checkbox" data-filter= "' + genre + '" checked>' +
@@ -335,16 +336,26 @@ var renderChecklists = function(genres){
                         '</label>';
 };
 
+var onlyShowGrammy = function(){
+    var noGrammy = Array.from(document.querySelectorAll('#playlist [data-grammy="no"]'));
+    noGrammy.forEach(function(song){
+        song.setAttribute('hidden', 'true');
+    })
+};
 
-var showAndHideSongs = function(event, filter){
+
+var showAndHideSongs = function(show, filter){
     // Get all songs that match the genre of the filter
     var songsByGenre = Array.from(document.querySelectorAll('#playlist [data-genre="' + filter + '"]'));
         //if checkbox is checked, show songs
         // otherwise, hide them
-        if(event.target.checked){
+        if(show){
             songsByGenre.forEach(function(song){
                 song.removeAttribute('hidden');
             });
+            if(grammyCheckbox.checked){
+                onlyShowGrammy();
+            }
         } else {
             songsByGenre.forEach(function(song){
                 song.setAttribute('hidden', 'true');
@@ -352,30 +363,76 @@ var showAndHideSongs = function(event, filter){
         }
 };
 
+
+var noGrammyFilter = function(){
+    var activeGenres = Array.from(document.querySelectorAll('#filters [data-filter]:checked')).map(function(filter){
+        return filter.getAttribute('data-filter');
+    });
+    activeGenres.forEach(function(genre){
+        showAndHideSongs(true, genre);
+    })
+};
+
+
 var clickHandler = function(event){
     var filter = event.target.getAttribute('data-filter');
     if(!filter) return;
 
-    // Show or Hide Songs;
-
-    showAndHideSongs(event, filter);
-
+    if(filter === 'grammy'){
+        if(event.target.checked){
+            onlyShowGrammy();
+        } else {
+            noGrammyFilter();
+        }
+    } else {
+        // Show or Hide Songs;
+        showAndHideSongs(event.target.checked, filter);
+    }
 };
 
 
+
+// Load checklists into the DOM;
 var genres = getGenres();
 renderChecklists(genres);
+
+// Set grammy checkbox
+
+grammyCheckbox = document.querySelector('[data-filter = "grammy"]');
 
 
 // Listen for checklist toggles
 
 
-// document.documentElement.addEventListener('click', clickHandler, false);
+//         With document.documentElement
 
-var genreCheckeds = Array.from(document.getElementsByTagName('label'));
+document.documentElement.addEventListener('click', clickHandler, false);
 
-    genreCheckeds.forEach(function(genreChecked){
-        genreChecked.addEventListener('click', clickHandler, false);
-    });
+
+//          With a forEach
+
+// var genreCheckeds = Array.from(document.getElementsByTagName('label'));
+//
+//     genreCheckeds.forEach(function(genreChecked){
+//         genreChecked.addEventListener('click', clickHandler, false);
+//     });
+
+
+//        Adding event listener to each element
+
+// var checkPop = document.getElementsByTagName('label')[0];
+// checkPop.addEventListener('click', clickHandler, false);
+// var checkHipHop = document.getElementsByTagName('label')[1];
+// checkHipHop.addEventListener('click', clickHandler, false);
+// var checkRock = document.getElementsByTagName('label')[2];
+// checkRock.addEventListener('click', clickHandler, false);
+// var checkElectronic = document.getElementsByTagName('label')[3];
+// checkElectronic.addEventListener('click', clickHandler, false);
+// var checkCountry = document.getElementsByTagName('label')[4];
+// checkCountry.addEventListener('click', clickHandler, false);
+
+
+
+
 
 
