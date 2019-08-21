@@ -289,7 +289,7 @@ function removeClass(element, name){
     element.className = arr1.join(" ");
 }
 
-var btnContainer = document.getElementById("myBttns");
+var btnContainer = document.getElementById("myBttons");
 var btns = btnContainer.getElementsByClassName("btn");
 for(var i = 0; i < btns.length; i++){
     btns[i].addEventListener('click', function(){
@@ -305,7 +305,7 @@ for(var i = 0; i < btns.length; i++){
 // VARIABLES
 
 var app = document.querySelector('#filters');
-var songs = document.querySelectorAll("#playlist li");
+var songs = Array.from(document.querySelectorAll("#playlist li"));
 
 console.log(songs);
 
@@ -326,7 +326,7 @@ var renderChecklists = function(genres){
     app.innerHTML = '<h2>Filter Sons</h2><h3>By Genre</h3>' +
         genres.map(function(genre){
             var html = '<label>' +
-                '<input type="checkbox" data-filter="' + genre + " checked>' +
+                '<input type="checkbox" data-filter= "' + genre + '">' +
                 genre + '</label>';
             return html;
         }).join(" ") + '<h3>Grammy Nomination</h3>' +
