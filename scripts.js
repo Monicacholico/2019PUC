@@ -434,5 +434,12 @@ document.documentElement.addEventListener('click', clickHandler, false);
 
 
 
+//       Counter       ///////
 
+var theCounter = document.getElementById('counter');
+
+function counting(e){
+    e.keyCode = theCounter.innerText;
+    console.log(e.keyCode);
+}
 
