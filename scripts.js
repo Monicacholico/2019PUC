@@ -436,10 +436,30 @@ document.documentElement.addEventListener('click', clickHandler, false);
 
 //       Counter       ///////
 
-var theCounter = document.getElementById('counter');
+
+function animate(){
+    var stopCounter = setInterval(initCounter, 90);
+    var counter = 0;
+    function initCounter(){
+        document.getElementById("counter").innerHTML = counter;
+        counter++;
+        if(counter === 120){
+            clearInterval(stopCounter);
+        }
+    }
+    console.log("the counter" , counter);
+}
+
+window.onload = function(){
+    animate();
+};
+
+
 
 function counting(e){
     e.keyCode = theCounter.innerText;
     console.log(e.keyCode);
 }
+
+
 
