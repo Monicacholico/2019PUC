@@ -452,14 +452,17 @@ function animate(){
 
 window.onload = function(){
     animate();
+    displayCode();
 };
 
 
 
-function counting(e){
-    e.keyCode = theCounter.innerText;
-    console.log(e.keyCode);
+function displayCode(event){
+    var theCode = event.keyCode;
+    document.getElementById("key-code").innerHTML;
+    return theCode;
 }
+
 
 
 
