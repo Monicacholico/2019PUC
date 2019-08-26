@@ -452,7 +452,6 @@ function animate(){
 
 window.onload = function(){
     animate();
-    // displayCode();
 };
 
 
