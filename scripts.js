@@ -452,16 +452,19 @@ function animate(){
 
 window.onload = function(){
     animate();
-    displayCode();
+    // displayCode();
 };
 
 
+document.addEventListener('keydown', function(event){
+    var key= event.which;
+    document.getElementById("key-code").innerHTML = key;
+});
 
-function displayCode(event){
-    var theCode = event.keyCode;
-    document.getElementById("key-code").innerHTML;
-    return theCode;
-}
+
+
+
+
 
 
 
